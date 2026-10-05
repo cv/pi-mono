@@ -184,7 +184,9 @@ describe.skipIf(sshd === undefined)("SSH bootstrap", () => {
 	}, 60_000);
 
 	it("starts the daemon through the login shell only when asked", async () => {
+		// The login shell is the account's shell: sh and bash read .profile, zsh (the macOS default) reads .zprofile.
 		writeFileSync(join(home, ".profile"), "export PI_ENV_LOGIN=yes\n");
+		writeFileSync(join(home, ".zprofile"), "export PI_ENV_LOGIN=yes\n");
 		const login = async (loginShell: boolean) => {
 			const { connection } = await connectSsh({ ...target, binary: daemon, loginShell });
 			try {
