@@ -2,9 +2,14 @@
 
 ## [Unreleased]
 
+### Added
+
+- Added `OpenAICompletionsCompat.inlineSchemaRefs` to inline local `$ref` references in tool schemas before sending them. It defaults to true for NVIDIA NIM, where models returned referenced objects as JSON strings ([#10270](https://github.com/earendil-works/pi/issues/10270))
+
 ### Fixed
 
 - Fixed Bedrock requests that fail with `The pending stream has been canceled` after a stalled HTTP/2 connection not being retried automatically ([#10379](https://github.com/earendil-works/pi/issues/10379))
+- Fixed tool argument coercion and optional-null cleanup skipping values whose schema is a local `$ref` ([#10270](https://github.com/earendil-works/pi/issues/10270))
 
 ## [1.0.3] - 2026-10-05
 

@@ -43,8 +43,8 @@ const BUDGETS = {
 	},
 	"packages/durable": {
 		".": {
-			// Tool argument validation reaches TypeBox; provider-session creation reaches pi-ai's lean UUID utility.
-			maxFiles: 62,
+			// Tool argument validation reaches TypeBox and pi-ai's schema reference inliner; provider-session creation reaches pi-ai's lean UUID utility.
+			maxFiles: 63,
 			forbid: ["packages/ai/src/index.ts", "packages/ai/src/utils/typebox-helpers.ts"],
 		},
 	},

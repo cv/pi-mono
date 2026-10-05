@@ -850,6 +850,8 @@ export interface OpenAICompletionsCompat {
 	supportsMidConvoToolAdditions?: boolean;
 	/** Whether the provider supports the `strict` field in tool definitions. Default: false; generated capable models enable it explicitly. */
 	supportsStrictMode?: boolean;
+	/** Whether to inline local `$ref` references in tool schemas before sending them. Some models served this way return a referenced object as a JSON string instead of an object. Default: true for NVIDIA NIM, false otherwise. */
+	inlineSchemaRefs?: boolean;
 	/** Cache control convention for prompt caching. "anthropic" applies Anthropic-style `cache_control` markers to the system prompt, last tool definition, and last user, assistant, or tool-result text content. */
 	cacheControlFormat?: "anthropic";
 	/** Whether to send session-affinity data from `options.sessionId`. Default: true for OpenRouter endpoints, false otherwise. */
